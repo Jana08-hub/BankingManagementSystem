@@ -1,56 +1,25 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Bank {
 
-    ArrayList<Account> accounts = new ArrayList<>();
+    HashMap<Integer, Account> accounts = new HashMap<>();
 
-    void createAccount(int accountNumber, String name, double balance) {
+    public void createAccount(int accountNumber, String name, double balance) {
 
-        Account acc = new Account(accountNumber, name, balance);
-        accounts.add(acc);
-
-        System.out.println("Account created successfully!");
-    }
-
-    Account findAccount(int accountNumber) {
-
-        for (Account acc : accounts) {
-            if (acc.accountNumber == accountNumber) {
-                return acc;
-            }
-        }
-
-        return null;
-    }
-
-    void deposit(int accountNumber, double amount) {
-
-        Account acc = findAccount(accountNumber);
-
-        if (acc != null) {
-            acc.deposit(amount);
+        if (accounts.containsKey(accountNumber)) {
+            System.out.println("Account already exists.");
         } else {
-            System.out.println("Account not found.");
+            Account account = new Account(accountNumber, name, balance);
+            accounts.put(accountNumber, account);
+            System.out.println("Account created successfully.");
         }
     }
 
-    void withdraw(int accountNumber, double amount) {
+    public void deposit(int accountNumber, double amount) {
 
-        Account acc = findAccount(accountNumber);
-
-        if (acc != null) {
-            acc.withdraw(amount);
-        } else {
-            System.out.println("Account not found.");
-        }
-    }
-
-    void balanceCheck(int accountNumber) {
-
-        Account acc = findAccount(accountNumber);
-
-        if (acc != null) {
-            acc.checkBalance();
+        if (accounts.containsKey(accountNumber)) {
+            Account account = accounts.get(accountNumber);
+            account.deposit(amount);
         } else {
             System.out.println("Account not found.");
         }

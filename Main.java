@@ -14,9 +14,7 @@ public class Main {
             System.out.println("\n===== BANKING MANAGEMENT SYSTEM =====");
             System.out.println("1. Create Account");
             System.out.println("2. Deposit");
-            System.out.println("3. Withdraw");
-            System.out.println("4. Balance Check");
-            System.out.println("5. Exit");
+            System.out.println("3. Exit");
 
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -25,7 +23,7 @@ public class Main {
 
                 case 1:
                     System.out.print("Enter Account Number: ");
-                    int accNo = sc.nextInt();
+                    int accountNumber = sc.nextInt();
 
                     sc.nextLine();
 
@@ -35,37 +33,20 @@ public class Main {
                     System.out.print("Enter Initial Balance: ");
                     double balance = sc.nextDouble();
 
-                    bank.createAccount(accNo, name, balance);
+                    bank.createAccount(accountNumber, name, balance);
                     break;
 
                 case 2:
                     System.out.print("Enter Account Number: ");
-                    accNo = sc.nextInt();
+                    accountNumber = sc.nextInt();
 
                     System.out.print("Enter Deposit Amount: ");
-                    double deposit = sc.nextDouble();
+                    double amount = sc.nextDouble();
 
-                    bank.deposit(accNo, deposit);
+                    bank.deposit(accountNumber, amount);
                     break;
 
                 case 3:
-                    System.out.print("Enter Account Number: ");
-                    accNo = sc.nextInt();
-
-                    System.out.print("Enter Withdraw Amount: ");
-                    double withdraw = sc.nextDouble();
-
-                    bank.withdraw(accNo, withdraw);
-                    break;
-
-                case 4:
-                    System.out.print("Enter Account Number: ");
-                    accNo = sc.nextInt();
-
-                    bank.balanceCheck(accNo);
-                    break;
-
-                case 5:
                     System.out.println("Thank you!");
                     break;
 
@@ -73,7 +54,7 @@ public class Main {
                     System.out.println("Invalid choice.");
             }
 
-        } while (choice != 5);
+        } while (choice != 3);
 
         sc.close();
     }
