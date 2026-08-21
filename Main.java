@@ -11,9 +11,10 @@ public class Main {
         int choice;
 
         do {
+
             System.out.println("\n===== BANKING MANAGEMENT SYSTEM =====");
             System.out.println("1. Create Account");
-            System.out.println("2. Deposit");
+            System.out.println("2. Withdraw");
             System.out.println("3. Exit");
 
             System.out.print("Enter your choice: ");
@@ -22,6 +23,7 @@ public class Main {
             switch (choice) {
 
                 case 1:
+
                     System.out.print("Enter Account Number: ");
                     int accountNumber = sc.nextInt();
 
@@ -34,23 +36,29 @@ public class Main {
                     double balance = sc.nextDouble();
 
                     bank.createAccount(accountNumber, name, balance);
+
                     break;
 
                 case 2:
+
                     System.out.print("Enter Account Number: ");
                     accountNumber = sc.nextInt();
 
-                    System.out.print("Enter Deposit Amount: ");
+                    System.out.print("Enter Withdraw Amount: ");
                     double amount = sc.nextDouble();
 
-                    bank.deposit(accountNumber, amount);
+                    bank.withdraw(accountNumber, amount);
+
                     break;
 
                 case 3:
+
                     System.out.println("Thank you!");
+
                     break;
 
                 default:
+
                     System.out.println("Invalid choice.");
             }
 
