@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Main {
@@ -14,8 +13,10 @@ public class Main {
 
             System.out.println("\n===== BANKING MANAGEMENT SYSTEM =====");
             System.out.println("1. Create Account");
-            System.out.println("2. Withdraw");
-            System.out.println("3. Exit");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Check Balance");
+            System.out.println("5. Exit");
 
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -44,16 +45,37 @@ public class Main {
                     System.out.print("Enter Account Number: ");
                     accountNumber = sc.nextInt();
 
-                    System.out.print("Enter Withdraw Amount: ");
-                    double amount = sc.nextDouble();
+                    System.out.print("Enter Deposit Amount: ");
+                    double depositAmount = sc.nextDouble();
 
-                    bank.withdraw(accountNumber, amount);
+                    bank.deposit(accountNumber, depositAmount);
 
                     break;
 
                 case 3:
 
-                    System.out.println("Thank you!");
+                    System.out.print("Enter Account Number: ");
+                    accountNumber = sc.nextInt();
+
+                    System.out.print("Enter Withdraw Amount: ");
+                    double withdrawAmount = sc.nextDouble();
+
+                    bank.withdraw(accountNumber, withdrawAmount);
+
+                    break;
+
+                case 4:
+
+                    System.out.print("Enter Account Number: ");
+                    accountNumber = sc.nextInt();
+
+                    bank.checkBalance(accountNumber);
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Thank you for using Banking Management System.");
 
                     break;
 
@@ -62,7 +84,7 @@ public class Main {
                     System.out.println("Invalid choice.");
             }
 
-        } while (choice != 3);
+        } while (choice != 5);
 
         sc.close();
     }

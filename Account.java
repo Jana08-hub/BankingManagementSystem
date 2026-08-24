@@ -10,19 +10,35 @@ public class Account {
         this.balance = balance;
     }
 
+    public void deposit(double amount) {
+
+        if (amount > 0) {
+            balance = balance + amount;
+            System.out.println("Amount deposited successfully.");
+            System.out.println("Current Balance: Rs." + balance);
+        } else {
+            System.out.println("Invalid amount.");
+        }
+    }
+
     public void withdraw(double amount) {
 
-        if (amount <= 0) {
-            System.out.println("Invalid amount.");
-        } 
-        else if (amount > balance) {
-            System.out.println("Insufficient balance.");
-        } 
-        else {
+        if (amount > 0 && amount <= balance) {
             balance = balance - amount;
             System.out.println("Amount withdrawn successfully.");
-            System.out.println("Withdraw Amount : Rs." + amount);
-            System.out.println("Remaining Balance : Rs." + balance);
+            System.out.println("Current Balance: Rs." + balance);
+        } else if (amount > balance) {
+            System.out.println("Insufficient balance.");
+        } else {
+            System.out.println("Invalid amount.");
         }
+    }
+
+    public void checkBalance() {
+
+        System.out.println("\n----- ACCOUNT DETAILS -----");
+        System.out.println("Account Number : " + accountNumber);
+        System.out.println("Account Holder : " + name);
+        System.out.println("Current Balance: Rs." + balance);
     }
 }
